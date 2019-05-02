@@ -1,0 +1,26 @@
+var wiggleSpeed=60;
+var wiggleAmplitude=10;
+var easeDur=20;
+
+
+try{
+    
+    if(time>=thisLayer.marker.nearestKey(time).time){
+        T=thisLayer.marker.nearestKey(time).index;
+    }else{
+        T=thisLayer.marker.nearestKey(time).index-1;
+    }    
+
+    key1=thisLayer.marker.key(T)
+    
+    if (key1.time<time && time<(key1.time+key1.duration)){
+        s=linear(time,key1.time,key1.time+(easeDur*thisComp.frameDuration),0,1);
+        ss=linear(time,(key1.time+key1.duration)-(easeDur*thisComp.frameDuration),(key1.time+key1.duration),1,0);
+        w=wiggle(wiggleSpeed,wiggleAmplitude*s*ss);
+		[w[0],value[1]]
+    }else{
+    value;}
+    
+}catch(error) {
+value;
+}
